@@ -8,27 +8,13 @@ var playerMoney = 10;
 console.log(playerName, playerAttack, playerHealth);
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
-// console.log(enemyNames);
-// console.log(enemyNames[0]);
-// console.log(enemyNames[1]);
-// console.log(enemyNames[2]);
-// console.log(enemyNames.length);
-// for(var i = 0; i < enemyNames.length; i++) {
-//   console.log(enemyNames[i]);
-//   console.log(i);
-//   console.log(enemyNames[i] + " is at " + i + " index");
-// }
 var enemyHealth = 50;
 var enemyAttack = 12;
 
 // fight function
-var fight = function(enemyName) {
-  //repeat and execute as long as the enemy-robot is alive
+var fight = function(enemyName) { 
   while(enemyHealth > 0) {
-    for(var i = 0; i < enemyNames.length; i++) {
-      fight(enemyNames[i]);
-  }
-  // ask player if they'd like to fight or run
+    // ask player if they'd like to fight or run
   var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
   // if player choses to fight, fight
@@ -76,12 +62,16 @@ var fight = function(enemyName) {
     // if player did not chose 1 or 2 in prompt
   } else {
     window.alert("You need to pick a valid option. Try again!");
+  } 
   }
 };
 
 // run fight function to start game
 for(var i = 0; i < enemyNames.length; i++) {
-  fight(enemyNames[i]);
+  var pickedEnemyName = enemyNames[i];
+  enemyHealth = 50;
+  // call fight function with enemy-robot
+  fight(pickedEnemyName);
 }
 
 
